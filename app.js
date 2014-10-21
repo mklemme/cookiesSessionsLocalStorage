@@ -3,20 +3,39 @@ var express = require('express'),
   cookieParser = require('cookie-parser'),
   session = require('express-session');
 
-app.set('view engine', 'ejs');
+// // Simple Cookie
+// app.use(cookieParser());
+// app.get('/', function(req, res){
+//   res.cookie("cookie", "MONSTER!")
+//     .send('<img src="http://favim.com/orig/201105/04/Favim.com-33946.jpg" style="width: 15em; margin: 0 auto; display: block;">');
+// });
 
-// No Session
-app.use(cookieParser());
-app.get('/', function(req, res){
-  var counter = Number(req.cookies.views) || 0;
-  counter++;
-  //set cookie
-  res.cookie("views", counter)
-    .send("You've viewed this page " + counter + " times!");
-});
+// // Simple Session (in Browser)
+// window.localStorage.setItem("look", "This is in local storage");
+// window.localStorage.getItem("look");
 
-// // Signed Session
-// app.use(cookieParser("204820482048"));
+// // Cookie Counter
+// app.use(cookieParser());
+// app.get('/', function(req, res){
+//   var counter = Number(req.cookies.views) || 0;
+//   counter++;
+//   //set cookie
+//   res.cookie("views", counter)
+//     .send("You've viewed this page " + counter + " times!");
+// });
+
+// // Signed Cookies
+// app.use(cookieParser("0923iojklmr"));
+// app.get('/', function(req, res){
+//   var counter = Number(req.signedCookies.views) || 0;
+//   counter++;
+//   //set cookie
+//   res.cookie("views", counter, {signed: true})
+//     .send("You've viewed this page " + counter + " times!");
+// });
+
+// // Add Session
+// app.use(cookieParser("0923iojklmr"));
 // app.use(session());
 
 // app.get('/secure', function(req, res){
